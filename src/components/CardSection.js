@@ -30,11 +30,15 @@ function CardSection() {
       const data = snapshot.val();
       if (!!data) {
         let fRate = (
-          9.07 -
+          8.19 -
           3.09 * 0.1312335958 * 0.028316832 * Math.pow(data.Depth, 1 / 0.667)
         ).toFixed(2);
 
-        setFlowRate(fRate);
+        if (fRate <= 0) {
+          setFlowRate(0);
+        } else {
+          setFlowRate(fRate);
+        }
         setPData(data);
       } else {
         console.log("Data not found");
