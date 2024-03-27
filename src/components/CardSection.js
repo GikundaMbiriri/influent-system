@@ -36,7 +36,9 @@ function CardSection() {
 
         if (fRate <= 0) {
           setFlowRate(0);
-        } else {
+        }
+
+        if (fRate > 0) {
           setFlowRate(fRate);
         }
         setPData(data);

@@ -179,14 +179,10 @@ function Navbar() {
     return onValue(sensorData, (snapshot) => {
       const data = snapshot.val();
       if (!!data) {
-        let fRate =
+        let fRate = (
           8.19 -
-          (
-            3.09 *
-            0.1312335958 *
-            0.028316832 *
-            Math.pow(data.Depth, 1 / 0.667)
-          ).toFixed(2);
+          3.09 * 0.1312335958 * 0.028316832 * Math.pow(data.Depth, 1 / 0.667)
+        ).toFixed(2);
 
         if (data?.pHvalue > 0 && data?.pHvalue <= 6.5) {
           setPhRange("low");
@@ -209,7 +205,9 @@ function Navbar() {
         if (fRate <= 0) {
           setFlowRate(0);
           setShowAlert(true);
-        } else {
+        }
+
+        if (fRate > 0) {
           setFlowRate(fRate);
         }
 

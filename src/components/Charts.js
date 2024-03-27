@@ -70,7 +70,9 @@ function Charts() {
           (3.096 * 0.028316832 * Math.pow(data.Depth, 1 / 0.667)).toFixed(2);
         if (fRate <= 0) {
           setFlowRate(0);
-        } else {
+        }
+
+        if (fRate > 0) {
           setFlowRate(fRate);
         }
         setTemperature1((oldArray) => [data.Temperature, ...oldArray]);
